@@ -113,12 +113,6 @@ class Vector(object):
     def area_triangle(self, other):
         return self.cross_product(other).magnitude() / 2
 
-# A point represents a location, defined with x, y, z (2, -1)
-# A vector represents a change in direction and it is also defined with x, y, z
-# This time x, y and z represent the change in each of the coordinates.
-# A vectors doesn't have a specific location.
-
-
 if __name__ == '__main__':
     v = Vector([8.218, -9.341])
     w = Vector([-1.129, 2.111])
@@ -134,18 +128,7 @@ if __name__ == '__main__':
     multiplication = v.times_scalar(7.41)
     print 'multiplication: {}'.format(multiplication)
 
-
-# Vectors have magnitude and direction. The magnitude of a Vector is calculated
-# using the pythagorian formula adapted to as many dimensions as the vector has
-# e.g. 3 dimensions = square root of x^^2 + y^^2 + z^^2
-
-# The zero vector is the one that has all its coordinates equal to 0. The zero
-# vector has no direction and no normalization
-# A unit vector is any vector in which it's magnitude is 1
-
-# The process to find a Unit vector from a given vector is called normalization
-# A. Find magnitude
-# B. Multiply vector by 1/magnitude of vector
+    # *****************
 
     v = Vector([-0.221, 7.437])
     first_magintude = v.magnitude()
@@ -163,27 +146,7 @@ if __name__ == '__main__':
     second_normalization = v.normalize()
     print 'second_normailization: {}'.format(second_normalization)
 
-# The inner multiplication of vectors is the multiplication of their magnitudes
-# times the multiplications of the cos of their angle.
-# v1 * v2 = magnitude(v1) * magnitude(v2) * cos(v1-v2).
-# cos is bounded by -1 and +1 so:
-# v1 * v2 <= magnitude(v1) * magnitude(v2) // Inequality of Cauchy-Schwartz
-# if v1 * v2 == magnitude(v1) * magnitude(v2) => Angle is 0deg (same angle)
-# if v1 * v2 == - (magnitude(v1) * magnitude(v2)) => Angle is 180deg
-# (opposite angle)
-# if v1 * v2 == 0 and v1 != 0 and v2 != 0 => Angle is 90deg
-# v * v => magnitude(v) * magnitude(v) * cos(0) => magnitude(v) = sqrt(v * v)
-
-
-# It can also be expressed as:
-# v1 * v2 = sum of multiplication of each of its coordinates
-# So the angle of 2 vectors:
-# arc-cosin of (v1*v2)/(magnitude(v1) * magnitude(2)) => radians
-# arc-cosin of (normalize(v1) * normalize(v2))
-
-# http://betterexplained.com/articles/vector-calculus-understanding-the-dot-product/  # NOQA
-# Basically the dot product gives a number that applies the directional growth
-# of a vector into another one
+    # *****************
 
     v = Vector([7.887, 4.138])
     w = Vector([-8.802, 6.776])
@@ -195,6 +158,8 @@ if __name__ == '__main__':
     dot_product = v.dot_product(w)
     print 'second_dot_product: {}'.format(round(dot_product, 3))
 
+    # *****************
+
     v = Vector([3.183, -7.627])
     w = Vector([-2.668, 5.319])
     angle_rads = v.get_angle_rad(w)
@@ -205,15 +170,7 @@ if __name__ == '__main__':
     angle_degrees = v.get_angle_deg(w)
     print 'first_angle_rads: {}'.format(angle_degrees)
 
-
-# 2 vectors are parallel if one is a scalar multiple of another one
-# e.g: v and 2v and 1/2v and Zero vector
-
-# 2 vectors are orthogonal if v1 * v2 is = 0. There are 2 possibilities.
-# A vector that is 90 deg with another vector or the Zero vector.
-
-# Zero vector is both parallel and orthogonal to all other vectors
-# Zero vector is the only one that is orthogonal to itself
+    # *****************
 
     v = Vector([-7.579, -7.88])
     w = Vector([22.737, 23.64])
@@ -242,28 +199,7 @@ if __name__ == '__main__':
 
     print '4 parallel: {}, orthogonal: {}'.format(is_parallel, is_orthogonal)
 
-# Orthogonality is a tool for decomposing objects into combinations of simpler
-# objects in a structured way
-
-# Proyecting a vector into another vector:
-# https://www.udacity.com/course/viewer#!/c-ud953/l-4374471116/m-4583493277
-# v = v (parallel to base vector) + v (orthogonal to base vector)
-# v parallel is a cathetus, v orthogonal is the other cathetus and v is the
-# hipotenuse
-# cos angle = magnitude(v parallel) / magnitude(v) =>
-# magnitude(v parallel) = cos angle * magnitude(v)
-
-# (in this case v2 is the base vector)
-# from before (v1 * v2) / (magnitude(v1) * magnitude(v2)) = cos(v1-v2)
-# Substituting cos in both functions :
-
-# magnitude(v parallel) = magnitude(v) * (v1 * v2) / (mag(v1) * mag(v2)) =>
-# magnitude(v1 parallel) = (v1 * v2) /  magnitude(v2)) =>
-# magnitude(v1 parallel) = v1 * normalize(v2)
-
-# v1 parallel has the same direction as v2
-# magnitude(v1 parallel) * normalize(v2) = v1 parallel =>
-# (v1 * normalize(v2)) * normalize(v2) = v1 parallel
+    # *****************
 
     v = Vector([3.039, 1.879])
     w = Vector([0.825, 2.036])
@@ -286,28 +222,7 @@ if __name__ == '__main__':
 
     print 'second orthogonal vector is: {}'.format(orthogonal_vector)
 
-
-# Cross product: It's only possible in 3-dimension vectors and it gives
-# another vector.
-
-# Cross product of v and W is a vector that is orthogonal to both and its
-# magintute = magnitude(v) * magnitude(w) * sin(angle v-w)
-
-# Cross product of 2 parallel vectors is the 0 vector
-# If v or w are the 0 vector the cross product will be the 0 vector
-# Cross product is anticommutative, which means that the order matters in this
-# case the vectors have opposite direction
-
-# cross product(v, w) = - cross product(v, w)
-
-# the area of the parallelogram created with v and w is the magnitude of the
-# cross product of v and w
-
-# And the area of the triangle created by those 2 vectors v and w is half of
-# the area of the parallelogram
-
-
-# http://betterexplained.com/articles/cross-product/
+    # *****************
 
     v1 = Vector([8.462, 7.893, -8.187])
     w1 = Vector([6.984, -5.975, 4.778])

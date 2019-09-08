@@ -52,7 +52,7 @@ class Vector(object):
         return set(self.coordinates) == set([Decimal(0)])
 
     def plus(self, other):
-        new_coordinates = [x + y for x, y in zip(self.coordinates, v.coordinates)]
+        new_coordinates = [x + y for x, y in zip(self.coordinates, other.coordinates)]
         return Vector(new_coordinates)
 
     def minus(self, other):

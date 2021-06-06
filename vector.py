@@ -27,13 +27,16 @@ class Vector(object):
         self.current = 0
         return self
 
-    def next(self):
+    def __next__(self):
         if self.current >= len(self.coordinates):
             raise StopIteration
         else:
             current_value = self.coordinates[self.current]
             self.current += 1
             return current_value
+        
+    def next(self):
+        return self.__next__()
 
     def __len__(self):
         return len(self.coordinates)
